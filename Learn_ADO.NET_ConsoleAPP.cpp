@@ -1,3 +1,5 @@
+//CLR Console App (.Net Framework)
+
 #include "pch.h"
 #include <iostream>
 
@@ -14,44 +16,44 @@ using namespace System;
 
 int main(array<System::String ^> ^args)
 {
-    SqlConnection^ mySQLConnection = nullptr;
-    SqlDataAdapter^ myDataAdapter = nullptr;
-    DataSet^ myDataSet = nullptr;
+    //SqlConnection^ mySQLConnection = nullptr;
+    //SqlDataAdapter^ myDataAdapter = nullptr;
+    //DataSet^ myDataSet = nullptr;
 
-    try
-    {
-        char* connString = "";
-        char* sqlString = "";
-        char* srcTable = "";
+    //try
+    //{
+    //    char* connString = "";
+    //    char* sqlString = "";
+    //    char* srcTable = "";
 
-        String^ _connString = Marshal::PtrToStringAnsi((IntPtr)connString);
-        String^ _sqlString = Marshal::PtrToStringAnsi((IntPtr)sqlString);
+    //    String^ _connString = Marshal::PtrToStringAnsi((IntPtr)connString);
+    //    String^ _sqlString = Marshal::PtrToStringAnsi((IntPtr)sqlString);
 
-        String^ _srcTable = Marshal::PtrToStringAnsi((IntPtr)srcTable);
+    //    String^ _srcTable = Marshal::PtrToStringAnsi((IntPtr)srcTable);
 
-        mySQLConnection = gcnew SqlConnection();
-        mySQLConnection->ConnectionString = _connString;
-        myDataAdapter = gcnew SqlDataAdapter();
-        myDataSet = gcnew DataSet();
+    //    mySQLConnection = gcnew SqlConnection();
+    //    mySQLConnection->ConnectionString = _connString;
+    //    myDataAdapter = gcnew SqlDataAdapter();
+    //    myDataSet = gcnew DataSet();
 
-        mySQLConnection->Open();    // Open up the connection
+    //    mySQLConnection->Open();    // Open up the connection
 
-        // Assign the SelectCommand with an SQL Select command
-        myDataAdapter->SelectCommand = gcnew SqlCommand(_sqlString, mySQLConnection);
+    //    // Assign the SelectCommand with an SQL Select command
+    //    myDataAdapter->SelectCommand = gcnew SqlCommand(_sqlString, mySQLConnection);
 
-        // Use the DataAdapter to fill the DataSet
-        // A DataSet can be made up of many results. I called
-        // this result authors. The DataAdapter will know to use 
-        // the SelectCommand property to populate the DataSet.
-        myDataAdapter->Fill(myDataSet, _srcTable);
+    //    // Use the DataAdapter to fill the DataSet
+    //    // A DataSet can be made up of many results. I called
+    //    // this result authors. The DataAdapter will know to use 
+    //    // the SelectCommand property to populate the DataSet.
+    //    myDataAdapter->Fill(myDataSet, _srcTable);
 
-    }
-    catch (Exception^ e) {
-        Console::Write(e->ToString());
-    }
-    __finally {
-        mySQLConnection->Close();
-    }
+    //}
+    //catch (Exception^ e) {
+    //    Console::Write(e->ToString());
+    //}
+    //__finally {
+    //    mySQLConnection->Close();
+    //}
 
     return 0;
 }
